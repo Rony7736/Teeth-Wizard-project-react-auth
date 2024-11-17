@@ -2,9 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../pages/Home";
 import AllTreatment from "../components/AllTreatment";
-import Profile from "../components/Profile";
-import MyTreatment from "../components/MyTreatment";
+import Profile from "../pages/Profile";
 import Details from "../components/Details";
+import MyAppoinments from "../pages/MyAppoinments";
+import Login from "../components/Login/Login";
+import Register from "../components/Register/Register";
 
 
 const router = createBrowserRouter([
@@ -35,8 +37,8 @@ const router = createBrowserRouter([
             element: <Profile></Profile>
         },
         {
-            path: "/mytreatment",
-            element: <MyTreatment></MyTreatment>
+            path: "/myappoinments",
+            element: <MyAppoinments></MyAppoinments>
         },
         {
             path: "/details/:id",
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
                 
                 return singleData
             }
+        },
+        {
+            path: "/register",
+            element: <Register></Register>
+        },
+        {
+            path: "/login",
+            element: <Login></Login>
         },
       ]
     },
