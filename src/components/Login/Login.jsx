@@ -11,6 +11,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setError("")
 
         const email = e.target.email.value
         const password = e.target.password.value
@@ -19,7 +20,7 @@ const Login = () => {
         handleLogin(email, password) 
         .then(res => {})
         .catch(err => {
-             console.log(err.message)              
+            setError(err.message)              
         })
     }
 
@@ -44,15 +45,15 @@ const Login = () => {
                         </label>
                         <input type="password" placeholder="Password" name="password" className="input input-bordered" required />
                     </div>
+                    { error && <p className="text-red-500">{error}</p>}
 
                     <div className="form-control mt-6">
                         <div className="flex gap-6 justify-center">
                             <button className="btn btn-primary">Login</button>
-
                         </div>
-
-                    </div>
+                    </div>                 
                 </form>
+                
 
                 <div className="flex justify-around">
 

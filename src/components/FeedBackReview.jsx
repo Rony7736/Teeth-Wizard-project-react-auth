@@ -1,6 +1,6 @@
 
 const FeedBackReview = ({ feedBack }) => {
-    console.log(feedBack);
+    // console.log(feedBack);
     const { reviewId, name, userImg, review } = feedBack
 
     return (
