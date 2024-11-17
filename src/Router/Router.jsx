@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import AllTreatment from "../components/AllTreatment";
 import Profile from "../components/Profile";
 import MyTreatment from "../components/MyTreatment";
+import Details from "../components/Details";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,18 @@ const router = createBrowserRouter([
         {
             path: "/mytreatment",
             element: <MyTreatment></MyTreatment>
+        },
+        {
+            path: "/details/:id",
+            element: <Details></Details>,
+            loader: async ({params})=> {
+                const res = await fetch('/service.json')
+                const data = await res.json()
+                const singleData = data.find(d=> d.id == params.id)
+                // console.log(singleData);
+                
+                return singleData
+            }
         },
       ]
     },
